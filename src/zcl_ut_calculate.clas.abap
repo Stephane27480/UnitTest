@@ -5,10 +5,12 @@ CLASS zcl_ut_calculate DEFINITION
 
   PUBLIC SECTION.
     DATA : m_number TYPE i.
-
+"!<H2>Constructor Method</H2>
     METHODS constructor
       IMPORTING
         iv_number TYPE i.
+"!<H2>Méthode public COMPUTE</H2>
+"! <p> qui effectue les calcul
     METHODS compute
       IMPORTING
         iv_operation    TYPE char1
@@ -18,13 +20,14 @@ CLASS zcl_ut_calculate DEFINITION
         VALUE(rv_value) TYPE i.
   PROTECTED SECTION.
   PRIVATE SECTION.
-
+"!<H2>Addition Method</H2>
     METHODS addition
       IMPORTING
         iv_num1          TYPE i
         iv_num2          TYPE i
       RETURNING
         VALUE(rv_number) TYPE i   .
+"!<H2>substraction Method</H2>
     METHODS substraction
       IMPORTING
         iv_num1          TYPE i
