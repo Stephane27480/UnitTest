@@ -1,5 +1,6 @@
 CLASS zcl_ut_calculate DEFINITION
 "!<H1> Classe pour le test</H1>
+"! <p> global class
   PUBLIC
   FINAL
   CREATE PUBLIC .
