@@ -11,57 +11,6 @@
     <item>
      <FUNCNAME>ZFM_CALCULATE</FUNCNAME>
      <SHORT_TEXT>Calculate</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>IM_OPERATION</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>CHAR1</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>IM_BASENUMBER</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>I</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>IM_NUMBER1</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>I</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>IM_NUMBER2</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>I</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>EX_NUMBER</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>I</TYP>
-      </RSEXP>
-     </EXPORT>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>IM_OPERATION</PARAMETER>
-       <KIND>P</KIND>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>IM_BASENUMBER</PARAMETER>
-       <KIND>P</KIND>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>IM_NUMBER1</PARAMETER>
-       <KIND>P</KIND>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>IM_NUMBER2</PARAMETER>
-       <KIND>P</KIND>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EX_NUMBER</PARAMETER>
-       <KIND>P</KIND>
-      </RSFDO>
-     </DOCUMENTATION>
     </item>
    </FUNCTIONS>
   </asx:values>
