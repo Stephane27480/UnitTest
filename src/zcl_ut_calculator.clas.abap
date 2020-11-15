@@ -62,7 +62,8 @@ CLASS zcl_ut_calculator IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_operation_type.
-    rv_op = iv_operation+iv_index(1) .
+    data(lv_pos) = iv_index - 1.
+    rv_op = iv_operation+lv_pos(1) .
   ENDMETHOD.
 
 
