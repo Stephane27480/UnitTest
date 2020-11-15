@@ -46,6 +46,7 @@ CLASS zcl_ut_calculator IMPLEMENTATION.
                                 iv_second = lv_second
                                 iv_type = lv_type ).
       ENDDO.
+      rv_value = lv_base.
     ENDIF.
 
   ENDMETHOD.

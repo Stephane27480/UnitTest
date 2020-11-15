@@ -1,8 +1,13 @@
 *"* use this source file for your ABAP unit test classes
 CLASS ltc_number_operation DEFINITION deferred.
 class zcl_ut_calculator DEFINITION LOCAL FRIENDS ltc_number_operation.
+
 CLASS ltc_get_operation DEFINITION deferred.
 class zcl_ut_calculator DEFINITION LOCAL FRIENDS ltc_get_operation.
+
+CLASS ltc_compute DEFINITION deferred.
+class zcl_ut_calculator DEFINITION LOCAL FRIENDS ltc_compute.
+
 
 CLASS ltc_number_operation DEFINITION FOR TESTING
                             RISK LEVEL HARMLESS
@@ -30,6 +35,59 @@ CLASS ltc_get_operation DEFINITION FOR TESTING
     METHODS get_2_o_2_optype FOR TESTING RAISING cx_static_check.
 ENDCLASS.
 
+CLASS ltc_compute DEFINITION FOR TESTING
+                            RISK LEVEL HARMLESS
+                            DURATION SHORT.
+
+  PRIVATE SECTION.
+    DATA m_cut TYPE REF TO zcl_ut_calculator.
+    METHODS setup.
+    METHODS compute_2_op FOR TESTING RAISING cx_static_check.
+    METHODS compute_1_op FOR TESTING RAISING cx_static_check.
+    METHODS compute_2A_op FOR TESTING RAISING cx_static_check.
+ENDCLASS.
+
+CLASS ltc_compute IMPLEMENTATION.
+
+  METHOD compute_1_op.
+    "When
+    data(rv_result) = m_cut->compute( iv_operation = 'S'
+                                      iv_num1  = 10
+                                      iv_num2  = 22
+                                      iv_num3 =  30
+                                       ).
+    "Then
+    cl_abap_unit_assert=>assert_equals( msg = 'waou' exp = -12 act = rv_result ).
+  ENDMETHOD.
+
+  METHOD compute_2A_op.
+    "When
+    data(rv_result) = m_cut->compute( iv_operation = 'AA'
+                                      iv_num1  = 10
+                                      iv_num2  = 22
+                                      iv_num3 =  30
+                                       ).
+    "Then
+    cl_abap_unit_assert=>assert_equals( msg = 'waou' exp = 62 act = rv_result ).
+  ENDMETHOD.
+
+  METHOD compute_2_op.
+        "When
+    data(rv_result) = m_cut->compute( iv_operation = 'SA'
+                                      iv_num1  = 22
+                                      iv_num2  = 10
+                                      iv_num3 =  30
+                                       ).
+    "Then
+    cl_abap_unit_assert=>assert_equals( msg = 'waou' exp = 42 act = rv_result ).
+  ENDMETHOD.
+
+  METHOD setup.
+    "given
+    m_cut = NEW #(  ).
+  ENDMETHOD.
+
+ENDCLASS.
 
 
 CLASS ltc_number_operation IMPLEMENTATION.
