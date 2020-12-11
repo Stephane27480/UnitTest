@@ -4,6 +4,8 @@ CLASS zcl_ut_calculator DEFINITION
   CREATE PUBLIC .
 
   PUBLIC SECTION.
+    TYPES : ty_c1 TYPE c LENGTH 1,
+            ty_c2 TYPE c LENGTH 2.
     INTERFACES zif_ut_calculate .
     ALIASES : compute FOR zif_ut_calculate~compute,
               set_operation FOR zif_ut_calculate~set_operation.
@@ -13,14 +15,14 @@ CLASS zcl_ut_calculator DEFINITION
   PROTECTED SECTION.
   PRIVATE SECTION.
     METHODS get_number_operation
-      IMPORTING iv_operation     TYPE char2
+      IMPORTING iv_operation     TYPE ty_c2
       RETURNING VALUE(rv_number) TYPE i.
     METHODS get_operation_type
       IMPORTING iv_index     TYPE i
-                iv_operation TYPE char2
-      RETURNING VALUE(rv_op) TYPE char1.
+                iv_operation TYPE ty_c2
+      RETURNING VALUE(rv_op) TYPE ty_c1.
     METHODS do_maths
-      IMPORTING iv_type        TYPE char1
+      IMPORTING iv_type        TYPE ty_c1
                 iv_base        TYPE i
                 iv_second      TYPE i
       RETURNING VALUE(rv_math) TYPE i.
@@ -54,7 +56,7 @@ CLASS zcl_ut_calculator IMPLEMENTATION.
 
   METHOD set_operation.
     IF m_operation IS NOT BOUND.
-      m_operation = NEW zcl_ut_operations(  ) .
+      m_operation = new zcl_ut_operations(  ) .
     ENDIF.
   ENDMETHOD.
 
@@ -63,7 +65,7 @@ CLASS zcl_ut_calculator IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_operation_type.
-    data(lv_pos) = iv_index - 1.
+    DATA(lv_pos) = iv_index - 1.
     rv_op = iv_operation+lv_pos(1) .
   ENDMETHOD.
 
